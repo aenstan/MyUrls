@@ -152,7 +152,6 @@ func main() {
 }
 
 func Logger() *logrus.Logger {
-	now := time.Now()
 	logFilePath := ""
 	if dir, err := os.Getwd(); err == nil {
 		logFilePath = dir + "/logs/"
@@ -160,7 +159,7 @@ func Logger() *logrus.Logger {
 	if err := os.MkdirAll(logFilePath, 0777); err != nil {
 		fmt.Println(err.Error())
 	}
-	logFileName := now.Format("2006-01-02") + ".log"
+	logFileName := "access.log"
 
 	//日志文件
 	fileName := path.Join(logFilePath, logFileName)
